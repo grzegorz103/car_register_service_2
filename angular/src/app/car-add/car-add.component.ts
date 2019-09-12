@@ -18,6 +18,6 @@ export class CarAddComponent implements OnInit {
   }
 
   send() {
-    this.carService.create(this.car).subscribe(res => alert('Zarejestrowano pojazd'));
+    this.carService.create(this.car).subscribe(res => alert('Dodano pojazd'));
   }
 }
