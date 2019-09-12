@@ -66,8 +66,8 @@ public class DatabaseInitializer
                         }
                         if ( carRepository.findAll().isEmpty() )
                         {
-                                carRepository.save( Car.builder().brand( "Volkswagen" ).mileage( 10000 ).model( "Gold" ).registerNumber( "WSI212EF" ).user( userRepository.findByUsername( "usertest" ) ).year( 2015 ).carType( "Sedan" ).build() );
-                                carRepository.save( Car.builder().brand( "Fiat" ).mileage( 200000 ).model( "Panda" ).registerNumber( "WSI92OFP" ).user( userRepository.findByUsername( "usertest" ) ).year( 2013 ).carType( "Sedan" ).build() );
+                                carRepository.save( Car.builder().brand( "Volkswagen" ).mileage( 10000 ).model( "Gold" ).user( userRepository.findByUsername( "usertest" ) ).year( 2015 ).carType( "Sedan" ).build() );
+                                carRepository.save( Car.builder().brand( "Fiat" ).mileage( 200000 ).model( "Panda" ).user( userRepository.findByUsername( "usertest" ) ).year( 2013 ).carType( "Sedan" ).build() );
                         }
                 };
         }

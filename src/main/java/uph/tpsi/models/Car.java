@@ -41,11 +41,6 @@ public class Car
         @Max (2020)
         private Integer year;
 
-        @Column (name = "register_number")
-        @NotEmpty
-        @Length (min = 2, max = 100)
-        private String registerNumber;
-
         @Column (name = "mileage")
         @Min (1)
         private Integer mileage;

@@ -36,7 +36,6 @@ public class CarServiceImpl implements CarService
         public Car create ( Car car )
         {
                 car.setUser( userRepository.findByUsername( SecurityContextHolder.getContext().getAuthentication().getName() ) );
-                car.setRegisterNumber( RandomStringUtils.randomAlphabetic( 2 ).toUpperCase() + RandomStringUtils.randomAlphanumeric( 5 ).toUpperCase() );
                 return carRepository.save( car );
         }
 
