@@ -14,6 +14,7 @@ import { HttpRequestInterceptor } from './security/request-interceptor';
 import { CarListComponent } from './car-list/car-list.component';
 import { CarAddComponent } from './car-add/car-add.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
+import { CarRegisterListComponent } from './car-register-list/car-register-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CarDetailsComponent } from './car-details/car-details.component';
     FooterComponent,
     CarListComponent,
     CarAddComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
+    CarRegisterListComponent
   ],
   imports: [
     BrowserModule,

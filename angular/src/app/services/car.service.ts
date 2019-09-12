@@ -22,4 +22,8 @@ export class CarService {
   findOneById(id: number) {
     return this.http.get<Car>(this.url + 'one/' + id);
   }
+
+  findByRegisterNumberr(registerNumber: number){
+    return this.http.get<Car>(this.url + 'bynumber/' + registerNumber);
+  }
 }

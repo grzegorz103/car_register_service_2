@@ -31,9 +31,16 @@ public class CarController
                 return carService.create( car );
         }
 
-        @GetMapping("/one/{id}")
-        public Car findById(@PathVariable("id") Long id){
-                return carService.findById(id);
+        @GetMapping ("/one/{id}")
+        public Car findById ( @PathVariable ("id") Long id )
+        {
+                return carService.findById( id );
+        }
+
+        @GetMapping ("/bynumber/{number}")
+        public Car findByRegisterNumber ( @PathVariable ("number") String number )
+        {
+                return carService.findByRegisterNumber( number );
         }
 
 }

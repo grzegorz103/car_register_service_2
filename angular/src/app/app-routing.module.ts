@@ -6,6 +6,7 @@ import { IndexComponent } from './shared/index/index.component';
 import { CarListComponent } from './car-list/car-list.component';
 import { CarAddComponent } from './car-add/car-add.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
+import { CarRegisterListComponent } from './car-register-list/car-register-list.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'cars/my', component: CarListComponent},
   { path: 'cars/add', component: CarAddComponent},
   { path: 'cars/:id/details', component: CarDetailsComponent},
+  { path: 'registers', component: CarRegisterListComponent},
   { path: '', component: IndexComponent }
 ];
 

@@ -11,4 +11,6 @@ public interface CarService
         Car create(Car car);
 
         Car findById ( Long id );
+
+        Car findByRegisterNumber(String registerNumber);
 }

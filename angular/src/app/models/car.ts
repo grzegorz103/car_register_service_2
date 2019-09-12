@@ -1,4 +1,4 @@
-import { CarType } from './carType';
+import { CarRegister } from './carRegister';
 
 export class Car {
     id: number;
@@ -7,5 +7,6 @@ export class Car {
     year: number;
     registeredNumber: string;
     mileage: number;
-    carType: CarType;
+    carType: string;
+    carRegister: CarRegister
 }

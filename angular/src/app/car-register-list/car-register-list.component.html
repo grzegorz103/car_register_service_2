@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Rejestracje</h2>
+    <table class="table table-striped py-2">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Data rejestracji</th>
+                <th scope="col">Numer rejetracyjny</th>
+                <th scope="col">Status opłaty</th>
+                <th scope="col">Akcja</th>
+                <th scope="col">Szczegóły</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let register of carRegisters">
+                <th scope="row">{{ register.id }}</th>
+                <td>{{ register.registerDate | date:'dd-MM-yyyy' }}</td>
+                <td>{{ register.registerNumber }}</td>
+                <th>
+                    <p *ngIf="register?.paid" class="text-success">Tak</p>
+                    <p *ngIf="!register?.paid" class="text-danger">Nie</p>
+                </th>
+                <td><button *ngIf="!register?.paid" (click)="pay(register.id)" class="btn btn-primary">Zmień</button>
+              <p *ngIf="register?.paid">-</p>
+                </td>
+                <td><button (click)="goToCarDetails(register.registerNumber)" class="btn btn-success">Szczegóły</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

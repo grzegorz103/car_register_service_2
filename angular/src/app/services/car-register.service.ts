@@ -11,7 +11,7 @@ export class CarRegisterService {
   constructor(private http:HttpClient) { }
 
   findAll(){
-    return this.http.get<CarRegister>(this.url);
+    return this.http.get<CarRegister[]>(this.url);
   }
 
   pay(id: number){

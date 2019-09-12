@@ -14,6 +14,7 @@ import uph.tpsi.repositories.UserRoleRepository;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService
@@ -42,7 +43,9 @@ public class UserServiceImpl implements UserService
                 return new org.springframework.security.core.userdetails.User(
                         user.getUsername(),
                         user.getPassword(),
-                        Collections.singleton( new SimpleGrantedAuthority( "USER" ) )
+                        user.getUserRoles().stream().map(
+                                e -> new SimpleGrantedAuthority( e.getUserType().name() ) )
+                                .collect( Collectors.toSet() )
                 );
         }
 

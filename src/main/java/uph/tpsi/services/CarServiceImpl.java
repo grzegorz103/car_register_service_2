@@ -42,6 +42,12 @@ public class CarServiceImpl implements CarService
         @Override
         public Car findById ( Long id )
         {
-                return carRepository.findById( id ).orElseThrow( ()->new RuntimeException( "Not found" ) );
+                return carRepository.findById( id ).orElseThrow( () -> new RuntimeException( "Not found" ) );
+        }
+
+        @Override
+        public Car findByRegisterNumber ( String registerNumber )
+        {
+                return carRepository.findByCarRegister_RegisterNumber( registerNumber );
         }
 }

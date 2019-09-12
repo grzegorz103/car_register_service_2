@@ -22,12 +22,12 @@ export class UserService {
     return this.http.post<Observable<boolean>>(this.url + 'login?username=' + username + '&password=' + password, null
     );
   }
-  
+
   fetchAdminRole() {
     this.http.get<boolean>(this.url + 'admin').subscribe(res => localStorage.setItem('adminRole', String(res)));
   }
 
-  
+
   create(user: User) {
     return this.http.post<User>(this.url, user);
   }
@@ -38,6 +38,10 @@ export class UserService {
 
   isAuthenticated() {
     return this.getToken() !== null && this.getToken() !== '';
+  }
+
+  hasAdminRole() {
+    return localStorage.getItem('adminRole') !== null && localStorage.getItem('adminRole') === 'true';
   }
 
 }
