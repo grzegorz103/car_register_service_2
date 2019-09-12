@@ -34,7 +34,7 @@ public class CarRegisterServiceImpl implements CarRegisterService
                 carRegister.setCar( car );
                 carRegister.setPaid( false );
                 carRegister.setRegisterDate( Instant.now() );
-                carRegister.setRegisterNumber( "WSI" + RandomStringUtils.randomAlphanumeric( 5 ) );
+                carRegister.setRegisterNumber( "WSI " + RandomStringUtils.randomAlphanumeric( 5 ).toUpperCase() );
                 return carRegisterRepository.save( carRegister );
         }
 
