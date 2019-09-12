@@ -1,5 +1,6 @@
 package uph.tpsi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,5 +31,6 @@ public class CarRegister
 
         @OneToOne (cascade = CascadeType.ALL)
         @JoinColumn (name = "car_id", referencedColumnName = "id")
+        @JsonIgnore
         private Car car;
 }
