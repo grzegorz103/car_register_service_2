@@ -17,14 +17,12 @@ public class CarServiceImpl implements CarService
 
         private final UserRepository userRepository;
 
-        private final CarTypeRepository carTypeRepository;
 
         @Autowired
-        public CarServiceImpl ( CarRepository carRepository, UserRepository userRepository, CarTypeRepository carTypeRepository )
+        public CarServiceImpl ( CarRepository carRepository, UserRepository userRepository )
         {
                 this.carRepository = carRepository;
                 this.userRepository = userRepository;
-                this.carTypeRepository = carTypeRepository;
         }
 
         @Override
@@ -40,12 +38,6 @@ public class CarServiceImpl implements CarService
                 car.setUser( userRepository.findByUsername( SecurityContextHolder.getContext().getAuthentication().getName() ) );
                 car.setRegisterNumber( RandomStringUtils.randomAlphabetic( 2 ).toUpperCase() + RandomStringUtils.randomAlphanumeric( 5 ).toUpperCase() );
                 return carRepository.save( car );
-        }
-
-        @Override
-        public List<CarType> findAllCartTypes ()
-        {
-                return carTypeRepository.findAll();
         }
 
         @Override

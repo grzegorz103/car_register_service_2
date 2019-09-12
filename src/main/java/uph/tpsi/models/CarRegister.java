@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.time.Instant;
 
@@ -24,4 +25,7 @@ public class CarRegister
         private String registerNumber;
 
         private boolean paid;
+
+        @OneToOne (mappedBy = "carRegister")
+        private Car car;
 }

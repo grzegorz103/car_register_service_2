@@ -19,6 +19,10 @@ public class Car
         @GeneratedValue (strategy = GenerationType.AUTO)
         private Long id;
 
+        @OneToOne (cascade = CascadeType.ALL)
+        @JoinColumn (name = "register_id", referencedColumnName = "id")
+        private CarRegister carRegister;
+
         private String brand;
 
         private String model;
