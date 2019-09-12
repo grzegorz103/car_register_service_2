@@ -36,4 +36,10 @@ public class User
         @OneToMany(mappedBy = "user")
         @JsonIgnore
         private Set<Car> cars;
+
+        @ManyToMany (fetch = FetchType.EAGER)
+        @JoinTable (name = "users_roles",
+                joinColumns = @JoinColumn (name = "user_id"),
+                inverseJoinColumns = @JoinColumn (name = "role_id"))
+        private Set<UserRole> userRoles;
 }

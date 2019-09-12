@@ -37,6 +37,6 @@ public class CarRegisterController
         @GetMapping ("/create/{id}")
         public CarRegister create ( @PathVariable ("id") Long id )
         {
-                return carRegisterService.pay( id );
+                return carRegisterService.create( id );
         }
 }

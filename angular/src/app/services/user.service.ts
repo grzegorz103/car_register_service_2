@@ -23,6 +23,11 @@ export class UserService {
     );
   }
   
+  fetchAdminRole() {
+    this.http.get<boolean>(this.url + 'admin').subscribe(res => localStorage.setItem('adminRole', String(res)));
+  }
+
+  
   create(user: User) {
     return this.http.post<User>(this.url, user);
   }

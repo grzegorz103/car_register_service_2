@@ -8,9 +8,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import uph.tpsi.models.Car;
 import uph.tpsi.models.User;
+import uph.tpsi.models.UserRole;
 import uph.tpsi.repositories.CarRepository;
 import uph.tpsi.repositories.UserRepository;
+import uph.tpsi.repositories.UserRoleRepository;
 
+import java.util.Collections;
 import java.util.HashSet;
 
 @Configuration
@@ -21,6 +24,9 @@ public class DatabaseInitializer
         private final CarRepository carRepository;
 
         private final PasswordEncoder encoder;
+
+        @Autowired
+        private UserRoleRepository userRoleRepository;
 
         @Autowired
         public DatabaseInitializer ( UserRepository userRepository, PasswordEncoder encoder, CarRepository carRepository )
@@ -35,12 +41,26 @@ public class DatabaseInitializer
         {
                 return () -> {
 
+                        if ( userRoleRepository.findAll().isEmpty() )
+                        {
+                                userRoleRepository.save( new UserRole( 1L, UserRole.UserType.ROLE_USER ) );
+                                userRoleRepository.save( new UserRole( 2L, UserRole.UserType.ROLE_ADMIN ) );
+                        }
                         if ( userRepository.findAll().isEmpty() )
                         {
                                 userRepository.save(
                                         User.builder().cars( new HashSet<>() )
                                                 .username( "usertest" )
+                                                .userRoles( new HashSet<>( Collections.singletonList( userRoleRepository.findByUserType( UserRole.UserType.ROLE_USER ) ) ) )
                                                 .password( encoder.encode( "usertest" ) )
+                                                .build()
+                                );
+
+                                userRepository.save(
+                                        User.builder().cars( new HashSet<>() )
+                                                .username( "admin" )
+                                                .password( encoder.encode( "admin" ) )
+                                                .userRoles( new HashSet<>( Collections.singletonList( userRoleRepository.findByUserType( UserRole.UserType.ROLE_ADMIN ) ) ) )
                                                 .build()
                                 );
                         }

@@ -28,6 +28,7 @@ public class CarRegister
 
         private boolean paid;
 
-        @OneToOne (mappedBy = "carRegister")
+        @OneToOne (cascade = CascadeType.ALL)
+        @JoinColumn (name = "car_id", referencedColumnName = "id")
         private Car car;
 }

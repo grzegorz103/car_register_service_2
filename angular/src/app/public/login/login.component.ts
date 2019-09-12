@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem(
           'token',
           btoa(this.model.username + ':' + this.model.password)
-        );
+        ); 
+        this.userService.fetchAdminRole();
+       
        localStorage.setItem('username', this.model.username);
         alert('Zalogowano!');
         this.router.navigate(['/']);

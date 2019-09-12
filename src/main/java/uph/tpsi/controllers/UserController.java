@@ -31,4 +31,11 @@ public class UserController
                 return userService.create( user );
         }
 
+        @GetMapping ("/admin")
+        public Boolean hasAdminRole ()
+        {
+                return userService.hasAdminRole();
+        }
+
+
 }

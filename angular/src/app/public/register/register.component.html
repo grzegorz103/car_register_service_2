@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card my-5">
+  <div class="card mb-3">
     <div class="card-body">
       <form (ngSubmit)="onSubmit()" #userForm="ngForm">
         <h2>Rejestracja</h2>
@@ -15,9 +15,11 @@
             name="password" required #name="ngModel">
         </div>
 
-
-        <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-info">Rejestruj</button>
-
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-success">Rejestruj</button>
+          </ol>
+        </nav>
       </form>
     </div>
   </div>
