@@ -30,8 +30,8 @@ export class CarRegisterListComponent implements OnInit {
     this.carRegisterService.pay(id).subscribe(res => this.ngOnInit());
   }
 
-  goToCarDetails(id: number){
-    this.carService.findByRegisterNumberr(id).subscribe(res=>
+  goToCarDetails(id: number) {
+    this.carService.findByRegisterNumberr(id).subscribe(res =>
       this.router.navigate(['/cars', res.id, 'details']));
   }
 }
