@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegisterComponent } from './public/register/register.component';
-import { LoginComponent } from './public/login/login.component';
-import { IndexComponent } from './public/index/index.component';
+import { RegisterComponent } from './shared/register/register.component';
+import { LoginComponent } from './shared/login/login.component';
+import { IndexComponent } from './shared/index/index.component';
 import { CarListComponent } from './car/car-list/car-list.component';
 import { CarAddComponent } from './car/car-add/car-add.component';
 import { CarDetailsComponent } from './car/car-details/car-details.component';
