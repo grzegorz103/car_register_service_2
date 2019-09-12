@@ -1,0 +1,28 @@
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Marka</th>
+                <th scope="col">Model</th>
+                <th scope="col">Rok</th>
+                <th scope="col">Numer rejstracyjny</th>
+                <th scope="col">Przebieg</th>
+                <th scope="col">Rodzaj</th>
+                <th scope="col">Szczegóły</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of cars">
+                <th scope="row">{{ car.id }}</th>
+                <td>{{ car.brand }}</td>
+                <td>{{ car.model }}</td>
+                <td>{{ car.year }}</td>
+                <td>{{ car.registerNumber }}</td>
+                <td>{{ car.mileage }}</td>
+                <td>{{ car.carType.name }}</td>
+                <td><button [routerLink]="['/cars', car.id, 'details']" class="btn btn-success">Szczegóły</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

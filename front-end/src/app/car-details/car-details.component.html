@@ -1,0 +1,36 @@
+<div class="container" *ngIf="car">
+    <h2 class="text-center">Szczegóły pojazdu o numerze rejstracyjnym: {{ car.registerNumber }}</h2>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ car.id }}</td>
+            </tr>
+            <tr>
+                <th>Marka</th>
+                <td>{{ car.brand }}</td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td>{{ car.model }}</td>
+            </tr>
+            <tr>
+                <th>Rok</th>
+                <td>{{ car.year }}</td>
+            </tr>
+            <tr>
+                <th>Nr rejestracyjny</th>
+                <td>{{ car.registerNumber }}</td>
+            </tr>
+            <tr>
+                <th>Przebieg</th>
+                <td>{{ car.mileage }}</td>
+            </tr>
+
+            <tr>
+                <th>Rodzaj</th>
+                <td>{{ car.carType.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

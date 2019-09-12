@@ -1,0 +1,36 @@
+<div class="container">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="marka">Marka</label>
+                <input type="text" [(ngModel)]="car.brand" required class="form-control" name="brand" id="brand">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="model">Model</label>
+                <input type="text" [(ngModel)]="car.model" required class="form-control" id="model" name="model">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="rok">Rok</label>
+                <input type="number" [(ngModel)]="car.year" required class="form-control" id="rok" name="year">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="przebieg">Przebieg</label>
+                <input type="number" [(ngModel)]="car.mileage" required class="form-control" id="przebieg"
+                    name="mileage">
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label for="carType">Typ</label>
+                <select id="carType" name="carType" [(ngModel)]="car.carType" class="form-control">
+                    <option *ngFor="let type of carTypes" [ngValue]="type">{{ type.name }}</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary my-3" (click)="send()">Dodaj</button>
+    </form>
+</div>
