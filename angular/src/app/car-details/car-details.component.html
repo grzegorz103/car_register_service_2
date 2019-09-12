@@ -1,36 +1,37 @@
 <div class="container" *ngIf="car">
-    <h2 class="text-center">Szczegóły pojazdu o numerze rejstracyjnym: {{ car.registerNumber }}</h2>
-    <table class="table table-bordered">
-        <tbody>
-            <tr>
-                <th>ID</th>
-                <td>{{ car.id }}</td>
-            </tr>
-            <tr>
-                <th>Marka</th>
-                <td>{{ car.brand }}</td>
-            </tr>
-            <tr>
-                <th>Model</th>
-                <td>{{ car.model }}</td>
-            </tr>
-            <tr>
-                <th>Rok</th>
-                <td>{{ car.year }}</td>
-            </tr>
-            <tr>
-                <th>Nr rejestracyjny</th>
-                <td>{{ car.registerNumber }}</td>
-            </tr>
-            <tr>
-                <th>Przebieg</th>
-                <td>{{ car.mileage }}</td>
-            </tr>
-
-            <tr>
-                <th>Rodzaj</th>
-                <td>{{ car.carType.name }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="card my-3">
+        <div class="card-body text-center">
+            <h2>{{ car.brand }} {{ car.model }}</h2>
+            <div class="row justify-content-center">
+                <p class="font-weight-bold mr-1">ID pojazdu: </p> {{ car.id }}
+            </div>
+            <div class="row justify-content-center">
+                <p class="font-weight-bold mr-1">Marka: </p> {{ car.brand }}
+            </div>
+            <div class="row justify-content-center">
+                <p class="font-weight-bold">Model: </p> {{ car.model }}
+            </div>
+            <div class="row justify-content-center">
+                <p class="font-weight-bold mr-1">Rok produkcji: </p> {{ car.year }}
+            </div>
+            <div class="row justify-content-center">
+                <p class="font-weight-bold mr-1">Przebieg: </p> {{ car.mileage }}
+            </div>
+            <div class="row justify-content-center">
+                <p class="font-weight-bold mr-1">Typ nadwozia: </p> {{ car.carType }}
+            </div>
+            <div class="row justify-content-center">
+                <p class="font-weight-bold mr-1">Data rejestracji: </p>
+                {{ car.carRegister === null ? '-' : car.carRegister.registerDate | date:'dd-MM-yyyy'}}
+            </div>
+            <div class="row justify-content-center">
+                <p class="font-weight-bold mr-1">Numer rejestracyjny: </p>
+                {{car.carRegister === null ? '-' : car.carRegister.registerNumber}}
+            </div>
+            <div class="row justify-content-center">
+                <p class="font-weight-bold mr-1">Opłacony: </p>
+                {{ car.carRegister === null ? '-' : car.carRegister.paid ? 'Tak' : 'Nie'}}
+            </div>
+        </div>
+    </div>
 </div>

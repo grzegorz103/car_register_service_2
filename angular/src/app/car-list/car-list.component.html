@@ -10,8 +10,6 @@
                 <th scope="col">Numer rejestracyjny</th>
                 <th scope="col">Data rejestracji</th>
                 <th scope="col">Opłacony</th>
-                <th scope="col">Przebieg</th>
-                <th scope="col">Rodzaj pojazdu</th>
                 <th scope="col">Rejestracja</th>
                 <th scope="col">Szczegóły</th>
             </tr>
@@ -23,10 +21,8 @@
                 <td>{{ car.model }}</td>
                 <td>{{ car.year }}</td>
                 <td><p *ngIf="car.carRegister === null">-</p><p *ngIf="car.carRegister !== null">{{car.carRegister.registerNumber}}</p></td>
-                <td><p *ngIf="car.carRegister === null">-</p><p *ngIf="car.carRegister !== null">{{car.carRegister.registerDate | date}}</p></td>
+                <td><p *ngIf="car.carRegister === null">-</p><p *ngIf="car.carRegister !== null">{{car.carRegister.registerDate | date: 'dd-MM-yyyy'}}</p></td>
                 <td><p *ngIf="car.carRegister === null">-</p><p *ngIf="car.carRegister !== null">{{car.carRegister.paid ? 'Tak' : 'Nie'}}</p></td>
-                 <td>{{ car.mileage }}</td>
-                <td>{{ car.carType }}</td>
                 <td><button *ngIf="car.carRegister === null" (click)="register(car.id)" class="btn btn-primary">Rejestruj</button>
                     <p *ngIf="car.carRegister !== null">Zarejestrowany</p>
                 </td>
