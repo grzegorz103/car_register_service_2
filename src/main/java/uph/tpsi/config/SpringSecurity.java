@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity (securedEnabled = true)
-public class Security extends WebSecurityConfigurerAdapter
+public class SpringSecurity extends WebSecurityConfigurerAdapter
 {
         @Override
         protected void configure ( HttpSecurity http ) throws Exception

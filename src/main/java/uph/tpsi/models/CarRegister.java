@@ -5,9 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
@@ -18,10 +16,14 @@ import java.time.Instant;
 @Builder
 public class CarRegister
 {
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
 
+        @Column(name="register_date")
         private Instant registerDate;
 
+        @Column(name="register_number")
         private String registerNumber;
 
         private boolean paid;

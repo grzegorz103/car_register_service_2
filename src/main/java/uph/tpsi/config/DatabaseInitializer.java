@@ -14,7 +14,7 @@ import uph.tpsi.repositories.UserRepository;
 import java.util.HashSet;
 
 @Configuration
-public class Initializer
+public class DatabaseInitializer
 {
         private final UserRepository userRepository;
 
@@ -23,10 +23,7 @@ public class Initializer
         private final PasswordEncoder encoder;
 
         @Autowired
-        private CarTypeRepository carTypeRepository;
-
-        @Autowired
-        public Initializer ( UserRepository userRepository, PasswordEncoder encoder, CarRepository carRepository )
+        public DatabaseInitializer ( UserRepository userRepository, PasswordEncoder encoder, CarRepository carRepository )
         {
                 this.userRepository = userRepository;
                 this.encoder = encoder;
@@ -38,26 +35,19 @@ public class Initializer
         {
                 return () -> {
 
-                        if ( carTypeRepository.findAll().isEmpty() )
-                        {
-                                carTypeRepository.save( new CarType( 1L, "VAN", new HashSet<>() ) );
-                                carTypeRepository.save( new CarType( 2L, "Sedan", new HashSet<>() ) );
-                                carTypeRepository.save( new CarType( 3L, "Sport", new HashSet<>() ) );
-                        }
-
-
                         if ( userRepository.findAll().isEmpty() )
                         {
                                 userRepository.save(
                                         User.builder().cars( new HashSet<>() )
-                                                .username( "user1" )
-                                                .password( encoder.encode( "user1" ) )
+                                                .username( "usertest" )
+                                                .password( encoder.encode( "usertest" ) )
                                                 .build()
                                 );
                         }
                         if ( carRepository.findAll().isEmpty() )
                         {
-                                carRepository.save( Car.builder().brand( "Ford" ).mileage( 10000 ).model( "Mustang" ).registerNumber( "WM502DD" ).user( userRepository.findByUsername( "user1" ) ).year( 2013 ).carType( carTypeRepository.findById( 3L ).get() ).build() );
+                                carRepository.save( Car.builder().brand( "Volkswagen" ).mileage( 10000 ).model( "Gold" ).registerNumber( "WSI212EF" ).user( userRepository.findByUsername( "usertest" ) ).year( 2015 ).carType( "Sedan" ).build() );
+                                carRepository.save( Car.builder().brand( "Fiat" ).mileage( 200000 ).model( "Panda" ).registerNumber( "WSI92OFP" ).user( userRepository.findByUsername( "usertest" ) ).year( 2013 ).carType( "Sedan" ).build() );
                         }
                 };
         }

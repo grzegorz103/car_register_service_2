@@ -4,8 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table (name = "cars")
@@ -23,16 +27,32 @@ public class Car
         @JoinColumn (name = "register_id", referencedColumnName = "id")
         private CarRegister carRegister;
 
+        @Column (name = "brand")
+        @NotEmpty
+        @Length (min = 2, max = 100)
         private String brand;
 
+        @Column (name = "model")
+        @NotEmpty
+        @Length (min = 2, max = 100)
         private String model;
 
+        @Column (name = "year")
+        @Min(1900)
+        @Max (2020)
         private Integer year;
 
+        @Column (name = "register_number")
+        @NotEmpty
+        @Length (min = 2, max = 100)
         private String registerNumber;
 
+        @Column (name = "mileage")
+        @Min (1)
         private Integer mileage;
 
+        @NotEmpty
+        @Length (min = 2, max = 100)
         private String carType;
 
         @ManyToOne

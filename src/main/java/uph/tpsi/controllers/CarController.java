@@ -32,13 +32,8 @@ public class CarController
         }
 
         @GetMapping("/one/{id}")
-        private Car findById(@PathVariable("id") Long id){
+        public Car findById(@PathVariable("id") Long id){
                 return carService.findById(id);
         }
 
-        @GetMapping ("/types")
-        public List<CarType> findCartTypes ()
-        {
-                return carService.findAllCartTypes();
-        }
 }

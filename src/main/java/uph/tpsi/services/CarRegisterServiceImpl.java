@@ -16,13 +16,13 @@ public class CarRegisterServiceImpl implements CarRegisterService
 {
         private final CarRepository carRepository;
 
-        @Autowired
-        private CarRegisterRepository carRegisterRepository;
+        private final CarRegisterRepository carRegisterRepository;
 
         @Autowired
-        public CarRegisterServiceImpl ( CarRepository carRepository )
+        public CarRegisterServiceImpl ( CarRepository carRepository, CarRegisterRepository carRegisterRepository )
         {
                 this.carRepository = carRepository;
+                this.carRegisterRepository = carRegisterRepository;
         }
 
         @Override //id pojazdu
