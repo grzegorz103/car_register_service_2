@@ -8,4 +8,6 @@ public interface UserService extends UserDetailsService
         User create(User user);
 
         boolean isLoginCorrect ( String username, String password );
+
+        boolean hasAdminRole ();
 }

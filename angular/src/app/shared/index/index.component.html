@@ -1,0 +1,10 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">TPSI</h1>
+        <p class="lead">Aplikacja do rejestrowania samochodów</p>
+        <p>Mateusz Mazurkiewicz projekt</p>
+        <hr class="my-4">
+        <a class="btn btn-success btn-lg" *ngIf="!userService.isAuthenticated()" routerLink="/register"
+            role="button">Zarejestruj się</a>
+    </div>
+</div>

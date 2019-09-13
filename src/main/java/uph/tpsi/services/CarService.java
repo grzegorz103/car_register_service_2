@@ -10,7 +10,7 @@ public interface CarService
 
         Car create(Car car);
 
-        List<CarType> findAllCartTypes();
-
         Car findById ( Long id );
+
+        Car findByRegisterNumber(String registerNumber);
 }

@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Twoje samochody</h2>
+    <table class="table table-striped py-2">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Marka</th>
+                <th scope="col">Model</th>
+                <th scope="col">Rok produkcji</th>
+                <th scope="col">Numer rejestracyjny</th>
+                <th scope="col">Data rejestracji</th>
+                <th scope="col">Opłacony</th>
+                <th scope="col">Rejestracja</th>
+                <th scope="col">Szczegóły</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of cars">
+                <th scope="row">{{ car.id }}</th>
+                <td>{{ car.brand }}</td>
+                <td>{{ car.model }}</td>
+                <td>{{ car.year }}</td>
+                <td><p *ngIf="car.carRegister === null">-</p><p *ngIf="car.carRegister !== null">{{car.carRegister.registerNumber}}</p></td>
+                <td><p *ngIf="car.carRegister === null">-</p><p *ngIf="car.carRegister !== null">{{car.carRegister.registerDate | date: 'dd-MM-yyyy'}}</p></td>
+                <td><p *ngIf="car.carRegister === null">-</p><p *ngIf="car.carRegister !== null">{{car.carRegister.paid ? 'Tak' : 'Nie'}}</p></td>
+                <td><button *ngIf="car.carRegister === null" (click)="register(car.id)" class="btn btn-primary">Rejestruj</button>
+                    <p *ngIf="car.carRegister !== null">Zarejestrowany</p>
+                </td>
+                <td><button [routerLink]="['/cars', car.id, 'details']" class="btn btn-success">Szczegóły</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

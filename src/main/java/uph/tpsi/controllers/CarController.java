@@ -31,14 +31,16 @@ public class CarController
                 return carService.create( car );
         }
 
-        @GetMapping("/one/{id}")
-        private Car findById(@PathVariable("id") Long id){
-                return carService.findById(id);
+        @GetMapping ("/one/{id}")
+        public Car findById ( @PathVariable ("id") Long id )
+        {
+                return carService.findById( id );
         }
 
-        @GetMapping ("/types")
-        public List<CarType> findCartTypes ()
+        @GetMapping ("/bynumber/{number}")
+        public Car findByRegisterNumber ( @PathVariable ("number") String number )
         {
-                return carService.findAllCartTypes();
+                return carService.findByRegisterNumber( number );
         }
+
 }
